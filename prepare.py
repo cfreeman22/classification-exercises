@@ -16,7 +16,7 @@ import acquire
 
 def clean_iris(df):
     '''
-    This function acquires the data from source, cleans the data, creates  dummy variables,
+    This function acquires the data from source, cleans the data, creates  dummy     variables,
     and prepares the data for analysis
     '''
     
@@ -83,7 +83,7 @@ def prep_titanic_data(df):
     '''
     This function cleans the titanic data and prepares the data for analysis and testing
     '''
-    df = clean_data(df)
+    df = clean_titanic(df)
     train, validate, test = split_data(df)
 
     return train, validate, test
