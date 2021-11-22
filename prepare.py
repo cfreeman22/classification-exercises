@@ -59,7 +59,7 @@ def clean_titanic(df):
     '''
     df = df.drop_duplicates()
     #dropping unwanted columns 
-    cols_to_drop = ['deck', 'embarked', 'class', 'age']
+    cols_to_drop = ['deck', 'embarked', 'class',]
     df = df.drop(columns=cols_to_drop)
     # Run .fillna() on the entire df for embark_town with most common value, 'Southampton'.
     df['embark_town'] = df.embark_town.fillna(value='Southampton')
@@ -67,7 +67,7 @@ def clean_titanic(df):
     dummy_df = pd.get_dummies(df[['sex', 'embark_town']], dummy_na=False, drop_first=[True, True])
     # Concatenate the dummy_df dataframe above with the original df and validate.
     df = pd.concat([df, dummy_df], axis=1)
-    
+    df = df[df.age.notna()]
     return df
 
 def split_data(df):
